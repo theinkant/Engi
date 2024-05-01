@@ -119,6 +119,7 @@ class TemplateTest extends TestCase
 
         $t = new Template(
             'SELECT # FROM #',
+            ['user_id','users'],
             new PrefixPlaceholderParser(
                 new NamedPlaceholderFactory(
                     new Sequence(),
@@ -129,7 +130,6 @@ class TemplateTest extends TestCase
                 '#'
             ),
         );
-        $t->apply(['user_id','users']);
 
         yield "Embedding subquery" => [
             '?','#',
@@ -159,11 +159,11 @@ class TemplateTest extends TestCase
 
         $t = new Template(
             $query,
+            $parameters,
             new EscapePlaceholderParser($escaper, $valuePrefix, $identifierPrefix),
             new PrefixPlaceholderParser($values, $valuePrefix),
             new PrefixPlaceholderParser($identifiers, $identifierPrefix),
         );
-        $t->apply($parameters);
         $tokens = $t->compile(...static::$dependencies);
         $this->assertSame(
             $result,
@@ -193,9 +193,9 @@ class TemplateTest extends TestCase
 
         $t = new Template(
             $sql,
+            $parameters,
             new PrefixPlaceholderParser($values, '?'),
         );
-        $t->apply($parameters);
         $tokens = $t->compile(...static::$dependencies);
         static::$assembler->assemble($tokens, ...static::$dependencies);
     }

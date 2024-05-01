@@ -18,6 +18,9 @@ abstract class ParserAbstract implements ParserInterface
         return preg_match($pattern, $string) === 1;
     }
 
+    /**
+     * @throws PlaceholderParserException
+     */
     public function parse(string $placeholder): Placeholder
     {
         return $this->matched($placeholder)

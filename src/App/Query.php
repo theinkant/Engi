@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Engi\App;
 
 use Engi\App\Ast\Template;
-use Engi\App\Exceptions\ReplacePlaceholderException;
 use Engi\App\Parsers\EscapePlaceholderParser;
 use Engi\App\Parsers\ParserAbstract;
 use Engi\App\Parsers\PrefixPlaceholderParser;
@@ -29,12 +28,8 @@ use Engi\App\Resolvers\ToIntResolver;
 use Engi\App\Resolvers\ToJsonResolver;
 use Engi\App\Resolvers\ToNumericResolver;
 use Engi\App\Resolvers\ToStringResolver;
-use Engi\Contracts\AssemblerInterface;
-use Engi\Contracts\EscapeBinaryInterface;
-use Engi\Contracts\EscapeIdentifierInterface;
-use Engi\Contracts\EscapeStringInterface;
 
-class Query
+class Query extends Template
 {
     /**
      * @var array<int,ParserAbstract>
@@ -43,15 +38,16 @@ class Query
     protected Sequence $sequence;
 
     public function __construct(
-        protected
-        EscapeStringInterface
-        &EscapeIdentifierInterface
-        &EscapeBinaryInterface
-        $escaper
+        string $query,
+        array $params = [],
     ) {
         $this->sequence = new Sequence();
         $resolvers      = $this->resolvers();
-        $this->parsers  = $this->parsers($resolvers, $this->sequence);
+        parent::__construct(
+            $query,
+            $params,
+            ...$this->parsers($resolvers, $this->sequence)
+        );
     }
 
     /**
@@ -73,11 +69,6 @@ class Query
             );
         }
         return $parsers;
-    }
-
-    protected function assembler(): AssemblerInterface
-    {
-        return new Assembler();
     }
 
     /**
@@ -109,28 +100,4 @@ class Query
             ),
         ];
     }
-
-
-    /**
-     * @param string $query
-     * @param array<int|string,mixed> $params
-     * @return string
-     * @throws ReplacePlaceholderException
-     */
-    final public function compile(
-        string $query,
-        array $params = [],
-    ): string {
-        $this->sequence->reset();
-        $ast = new Template(
-            $query,
-            ...$this->parsers
-        );
-        $ast->apply($params);
-        return $this->assembler()->assemble(
-            $ast->compile($this->escaper),
-            $this->escaper
-        );
-    }
-
 }

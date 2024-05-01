@@ -1,5 +1,12 @@
 {
     "name": "inkant/sql_template_engine",
+    "description": "SQL template engine",
+    "keywords": [
+        "SQL",
+        "database",
+        "template",
+        "PDO"
+    ],
     "autoload": {
         "psr-4": {
             "Engi\\": "src/"

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Engi\App\Ast;
 
 use Engi\App\Exceptions\NotResolvedValueException;
+use Engi\App\Exceptions\PlaceholderParserException;
 use Engi\App\Exceptions\ReplacePlaceholderException;
 use Engi\App\Parsers\ParserAbstract;
 use Engi\App\Placeholders\NamedPlaceholder;
@@ -25,13 +26,22 @@ class Template extends NodeAbstract
     protected array $parsers;
     protected Node $ast;
 
+    /**
+     * @param string $template
+     * @param array<int|string,mixed> $params
+     * @param ParserAbstract ...$parsers
+     * @throws ReplacePlaceholderException
+     * @throws PlaceholderParserException
+     */
     public function __construct(
         protected string $template,
+        protected array $params = [],
         ParserAbstract ...$parsers
     ) {
         $this->placeholders = new SplObjectStorage();
         $this->parsers = $parsers;
         $this->ast = $this->parse($this->template);
+        $this->apply($this->params);
     }
 
     protected function patterns(): string
@@ -43,8 +53,9 @@ class Template extends NodeAbstract
         return implode('|', $patterns);
     }
 
+
     /**
-     * @throws \Exception
+     * @throws PlaceholderParserException
      */
     public function parse(string $raw): Node
     {
@@ -88,7 +99,7 @@ class Template extends NodeAbstract
      * @return void
      * @throws ReplacePlaceholderException
      */
-    public function apply(array $parameters): void
+    protected function apply(array $parameters): void
     {
         foreach ($this->ast->components() as $node) {
             if (!($node instanceof NamedPlaceholder)) {
