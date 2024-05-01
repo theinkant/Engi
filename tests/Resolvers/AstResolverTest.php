@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Resolvers;
+
+use Engi\App\Ast\CommaList;
+use Engi\App\Resolvers\AstResolver;
+use Engi\App\Tokens\RawToken;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
+
+class AstResolverTest extends TestCase
+{
+    protected static AstResolver $resolver;
+
+    public static function setUpBeforeClass(): void
+    {
+        static::$resolver   = new AstResolver();
+    }
+
+    public static function positives(): array
+    {
+        return [
+            "value RawToken" => [new RawToken('token')],
+            "value CommaList" => [new CommaList(
+                new RawToken('token'),
+                new RawToken('token')
+            )]
+        ];
+    }
+
+    #[DataProvider('positives')]
+    public function testPositive(
+        mixed $value
+    ) {
+        $this->assertSame(
+            $value,
+            static::$resolver->resolve($value)
+        );
+    }
+}
