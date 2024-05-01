@@ -1,6 +1,7 @@
 {
     "name": "inkant/sql_template_engine",
     "description": "SQL template engine",
+    "license": "MIT",
     "keywords": [
         "SQL",
         "database",
