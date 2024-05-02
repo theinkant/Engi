@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Placeholders;
+namespace Inkant\Engi\Tests\Placeholders;
 
-use Engi\Placeholders\NamedPlaceholderFactory;
-use Engi\Placeholders\Sequence;
-use Engi\Resolvers\NumericResolver;
+use Inkant\Engi\Placeholders\NamedPlaceholderFactory;
+use Inkant\Engi\Placeholders\Sequence;
+use Inkant\Engi\Resolvers\NumericResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

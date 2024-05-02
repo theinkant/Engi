@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Resolvers;
+namespace Inkant\Engi\Tests\Resolvers;
 
-use Engi\Ast\CommaList;
-use Engi\Resolvers\AstResolver;
-use Engi\Tokens\RawToken;
+use Inkant\Engi\Ast\CommaList;
+use Inkant\Engi\Resolvers\AstResolver;
+use Inkant\Engi\Tokens\RawToken;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

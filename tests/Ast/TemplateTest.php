@@ -2,30 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Tests\Ast;
+namespace Inkant\Engi\Tests\Ast;
 
-use Engi\Assembler;
-use Engi\Ast\Template;
-use Engi\Contracts\EscapeIdentifierInterface;
-use Engi\Contracts\EscapeStringInterface;
-use Engi\Exceptions\EmptyPlaceholderException;
-use Engi\Exceptions\ReplacePlaceholderException;
-use Engi\Parsers\EscapePlaceholderParser;
-use Engi\Parsers\PrefixPlaceholderParser;
-use Engi\Placeholders\NamedPlaceholderFactory;
-use Engi\Placeholders\PlaceholderFactory;
-use Engi\Placeholders\Sequence;
-use Engi\ResolverAbstract;
-use Engi\Resolvers\AstResolver;
-use Engi\Resolvers\BoolResolver;
-use Engi\Resolvers\EscapeResolver;
-use Engi\Resolvers\IdentifierResolver;
-use Engi\Resolvers\KeyValueResolver;
-use Engi\Resolvers\ListResolver;
-use Engi\Resolvers\NullResolver;
-use Engi\Resolvers\NumericResolver;
-use Engi\Resolvers\Resolver;
-use Engi\Resolvers\StringResolver;
+use Inkant\Engi\Assembler;
+use Inkant\Engi\Ast\Template;
+use Inkant\Engi\Contracts\EscapeIdentifierInterface;
+use Inkant\Engi\Contracts\EscapeStringInterface;
+use Inkant\Engi\Exceptions\EmptyPlaceholderException;
+use Inkant\Engi\Exceptions\ReplacePlaceholderException;
+use Inkant\Engi\Parsers\EscapePlaceholderParser;
+use Inkant\Engi\Parsers\PrefixPlaceholderParser;
+use Inkant\Engi\Placeholders\NamedPlaceholderFactory;
+use Inkant\Engi\Placeholders\PlaceholderFactory;
+use Inkant\Engi\Placeholders\Sequence;
+use Inkant\Engi\ResolverAbstract;
+use Inkant\Engi\Resolvers\AstResolver;
+use Inkant\Engi\Resolvers\BoolResolver;
+use Inkant\Engi\Resolvers\EscapeResolver;
+use Inkant\Engi\Resolvers\IdentifierResolver;
+use Inkant\Engi\Resolvers\KeyValueResolver;
+use Inkant\Engi\Resolvers\ListResolver;
+use Inkant\Engi\Resolvers\NullResolver;
+use Inkant\Engi\Resolvers\NumericResolver;
+use Inkant\Engi\Resolvers\Resolver;
+use Inkant\Engi\Resolvers\StringResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

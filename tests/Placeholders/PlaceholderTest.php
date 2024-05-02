@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Placeholders;
+namespace Inkant\Engi\Tests\Placeholders;
 
-use Engi\Placeholders\Placeholder;
-use Engi\Resolvers\StringResolver;
-use Engi\Tokens\StringToken;
+use Inkant\Engi\Placeholders\Placeholder;
+use Inkant\Engi\Resolvers\StringResolver;
+use Inkant\Engi\Tokens\StringToken;
 use PHPUnit\Framework\TestCase;
 
 class PlaceholderTest extends TestCase

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Resolvers;
+namespace Inkant\Engi\Tests\Resolvers;
 
-use Engi\Assembler;
-use Engi\Resolvers\EscapeResolver;
+use Inkant\Engi\Assembler;
+use Inkant\Engi\Resolvers\EscapeResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

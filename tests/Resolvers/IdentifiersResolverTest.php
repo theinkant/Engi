@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Resolvers;
+namespace Inkant\Engi\Tests\Resolvers;
 
-use Engi\Assembler;
-use Engi\Contracts\EscapeIdentifierInterface;
-use Engi\Resolvers\IdentifierResolver;
+use Inkant\Engi\Assembler;
+use Inkant\Engi\Contracts\EscapeIdentifierInterface;
+use Inkant\Engi\Resolvers\IdentifierResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

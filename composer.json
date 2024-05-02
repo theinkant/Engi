@@ -9,16 +9,16 @@
         "PDO"
     ],
     "required": {
-        "php": ">=8.1"
+        "php": "^8.1"
     },
     "autoload": {
         "psr-4": {
-            "Engi\\": "src/Engi/"
+            "Inkant\\Engi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Inkant\\Engi\\Tests\\": "tests/"
         }
     },
     "require-dev": {

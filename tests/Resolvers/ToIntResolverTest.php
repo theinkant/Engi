@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Resolvers;
+namespace Inkant\Engi\Tests\Resolvers;
 
-use Engi\Assembler;
-use Engi\Resolvers\ToIntResolver;
+use Inkant\Engi\Assembler;
+use Inkant\Engi\Resolvers\ToIntResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
