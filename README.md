@@ -1,7 +1,8 @@
 ## SQL template engine (engi)
 Acts like [sprintf](https://www.php.net/manual/en/function.sprintf.php),
 but placeholders are customizable, extendable, its behavior flexible and sql-oriented.
-
+### Install
+`composer require inkant/engi`
 ### TL;DR
 #### DO NOT USE `DummyEscaper` IN PRODUCTION
 Please, use [PgEscaper](src/Escapers/PostgresqlEscaper.php), [PdoEscaper](src/Escapers/PdoEscaper.php) or your custom escape implementation instead of `DummyEscaper`.  
