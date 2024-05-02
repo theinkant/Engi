@@ -24,7 +24,7 @@ $compiler = new Compiler(new DummyEscaper());
 $compiler->compile($query) === $result
     ?: throw new \Exception();
 ```
-[More descriptive test case](tests/QueryTest.php) with subquery and parameter types  
+[More](tests/QueryTest.php) and [most](tests/Ast/TemplateTest.php) descriptive test cases with subquery and parameter types  
 Check resolvers setup example in [Query](src/Query.php)::resolvers() it can be extended  to customize placeholders or/and customize resolvers
 ### Architecture
 [Contracts that describing concepts](src/Contracts)  
