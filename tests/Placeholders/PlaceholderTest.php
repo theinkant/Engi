@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Placeholders;
 
-use Engi\App\Placeholders\Placeholder;
-use Engi\App\Resolvers\StringResolver;
-use Engi\App\Tokens\StringToken;
+use Engi\Placeholders\Placeholder;
+use Engi\Resolvers\StringResolver;
+use Engi\Tokens\StringToken;
 use PHPUnit\Framework\TestCase;
 
 class PlaceholderTest extends TestCase

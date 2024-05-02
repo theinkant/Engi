@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Assembler;
-use Engi\App\Resolvers\IdentifierResolver;
+use Engi\Assembler;
 use Engi\Contracts\EscapeIdentifierInterface;
+use Engi\Resolvers\IdentifierResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

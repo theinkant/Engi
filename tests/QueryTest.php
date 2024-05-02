@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Engi\App\Compiler;
-use Engi\App\Escapers\DummyEscaper;
-use Engi\App\Query;
+use Engi\Compiler;
+use Engi\Escapers\DummyEscaper;
+use Engi\Query;
 
 class QueryTest extends \PHPUnit\Framework\TestCase
 {

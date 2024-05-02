@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Assembler;
-use Engi\App\Resolvers\BoolResolver;
+use Engi\Assembler;
+use Engi\Resolvers\BoolResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

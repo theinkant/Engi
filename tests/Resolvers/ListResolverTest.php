@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Assembler;
-use Engi\App\Resolvers\ListResolver;
-use Engi\App\Resolvers\NumericResolver;
+use Engi\Assembler;
+use Engi\Resolvers\ListResolver;
+use Engi\Resolvers\NumericResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

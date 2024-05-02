@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Assembler;
-use Engi\App\Resolvers\EscapeResolver;
+use Engi\Assembler;
+use Engi\Resolvers\EscapeResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

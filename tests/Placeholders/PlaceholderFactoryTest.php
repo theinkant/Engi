@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Placeholders;
 
-use Engi\App\Placeholders\NamedPlaceholderFactory;
-use Engi\App\Placeholders\Sequence;
-use Engi\App\Resolvers\NumericResolver;
+use Engi\Placeholders\NamedPlaceholderFactory;
+use Engi\Placeholders\Sequence;
+use Engi\Resolvers\NumericResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

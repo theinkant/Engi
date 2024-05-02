@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Assembler;
-use Engi\App\Resolvers\ToStringResolver;
+use Engi\Assembler;
 use Engi\Contracts\EscapeStringInterface;
+use Engi\Resolvers\ToStringResolver;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

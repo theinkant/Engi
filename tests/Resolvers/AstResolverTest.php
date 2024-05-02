@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Resolvers;
 
-use Engi\App\Ast\CommaList;
-use Engi\App\Resolvers\AstResolver;
-use Engi\App\Tokens\RawToken;
+use Engi\Ast\CommaList;
+use Engi\Resolvers\AstResolver;
+use Engi\Tokens\RawToken;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
