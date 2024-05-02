@@ -94,7 +94,7 @@ using postgresql driver specific function `pg_escape_identifier`.
 but PDO does not provide any escape-identifier function, so `PdoEscaper::escapeIdentifier` returns identifier ASIS.
 
 ### Resolvers
-[All resolvers](src/Resolvers)
+[All resolvers](src/Resolvers)  
 [Use cases](tests/Resolvers)
 
 Resolvers responsible for resolving passed values to placeholders into sql values/structures.  
