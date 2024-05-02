@@ -5,11 +5,25 @@ declare(strict_types=1);
 namespace Inkant\Engi\Tests;
 
 use Inkant\Engi\Compiler;
-use Inkant\Engi\Escapers\DummyEscaper;
+use Inkant\Engi\Escapers\PostgresqlEscaper;
 use Inkant\Engi\Query;
+use PgSql\Connection;
+use PHPUnit\Framework\TestCase;
 
-class QueryTest extends \PHPUnit\Framework\TestCase
+class PgQueryTest extends TestCase
 {
+
+    protected function setUp(): void
+    {
+        $this->markTestSkipped('not implemented');
+    }
+
+    protected function pg(): Connection
+    {
+        $dsn = '';
+        return \pg_connect($dsn);
+    }
+
     public function testQuery(): void
     {
         $sql = "
@@ -33,14 +47,14 @@ WHERE login = ?
             )
         ];
         $result = "
-SELECT user_id, login
-FROM users
+SELECT \"user_id\", \"login\"
+FROM \"users\"
 WHERE login = 'email@email.email'
     AND int_id = 100
     AND string_id = '100'
     AND EXISTS(SELECT 1 FROM table WHERE id = 42)
 ";
-        $escaper  = new DummyEscaper();
+        $escaper  = new PostgresqlEscaper($this->pg());
         $compiler = new Compiler($escaper);
         $this->assertSame($result, $compiler->compile(
             new Query($sql, $params)

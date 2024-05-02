@@ -6,6 +6,7 @@ namespace Inkant\Engi\Escapers;
 
 class PdoEscaper implements BasicEscaperInterface
 {
+
     public function __construct(
         protected \PDO $connection
     ) {

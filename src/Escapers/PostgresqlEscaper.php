@@ -21,11 +21,11 @@ class PostgresqlEscaper implements BasicEscaperInterface
 
     public function escapeString(string $string): string
     {
-        return pg_escape_string($this->connection, $string);
+        return pg_escape_literal($this->connection, $string);
     }
 
     public function escapeBinary(string $string): string
     {
-        return pg_escape_bytea($this->connection, $string);
+        return "'" . pg_escape_bytea($this->connection, $string) . "'";
     }
 }
