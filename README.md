@@ -33,7 +33,7 @@ Check resolvers setup example in [Query](src/Query.php)::resolvers() it can be e
 as parts of [Abstract syntax tree](src/Contracts/AstInterface.php).  
 [Abstract syntax tree](src/Contracts/AstInterface.php) is an implementation of `composite` pattern,
 where leaf is a [token](src/Contracts/TokenInterface.php)(must have string representation) in sql context
-and [composites](src/Contracts/AstNodeInterface.php)(e.g.[placeholders](src/Contracts/PlaceholderInterface.php)) are more complex sql expressions.  
+and [composites](src/Contracts/AstNodeInterface.php)(e.g.[placeholders](src/Contracts/PlaceholderInterface.php)) are more complex sql structures.  
 Every [composite](src/Contracts/AstNodeInterface.php) must be transformed to [tokens](src/Contracts/TokensInterface.php)
 by calling `compile(mixed ...$dependencies)` method.  
 Every [token](src/Contracts/TokenInterface.php) must be transformed to string
@@ -94,7 +94,10 @@ using postgresql driver specific function `pg_escape_identifier`.
 but PDO does not provide any escape-identifier function, so `PdoEscaper::escapeIdentifier` returns identifier ASIS.
 
 ### Resolvers
-Resolvers responsible for resolving passed values to placeholders into sql values/expressions.  
+[All resolvers](src/Resolvers)
+[Use cases](tests/Resolvers)
+
+Resolvers responsible for resolving passed values to placeholders into sql values/structures.  
 Resolvers are simple, here is [StringResolver](src/Resolvers/StringResolver.php) example:  
 ```php
 class StringResolver extends ResolverAbstract
@@ -107,10 +110,16 @@ class StringResolver extends ResolverAbstract
     }
 }
 ```
-   
-  
- 
-
-
+#### KeyValueResolver
+Useful in `UPDATE SET` resolving associative array to key=value list 
+`['column1' => 1, 'column2' => 2] => 'column1=1,column2=2'` 
+#### ListResolver  
+Useful inside `IN`. If `array_is_list` then list resolving to comma separated sql list.  
+`[1, 2.38] => '1,2.38'`
+#### AstResolver
+Make nesting queries possible.   
+If value is AstInterface(e.g. Query), then it will be embedded and compiled during `compile`  
+#### IdentifierResolver
+placeholder for table and column names, will not be quoted as string value.
 
  
